@@ -2,13 +2,20 @@ version: 2
 
 sources:
   - name: raw
+    database: <dbt-project-490610>
     schema: gz_raw_data
+    loader: bigquery
+    freshness:
+       warn_after: {count: 12, period: hour}
     tables:
       - name: sales
         identifier: raw_gz_sales
+        description: sales of Greenweez
 
       - name: product
         identifier: raw_gz_product
+        description: products of Greenweez
 
       - name: ship
         identifier: raw_gz_ship
+        description: shipping data of Greenweez
