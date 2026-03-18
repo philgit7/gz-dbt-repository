@@ -11,16 +11,18 @@ sources:
         description: sales of Greenweez
         columns:
           - name: sales
-            description: 
+            description:
+        tests:
+            - unique
+            - not_null 
               
-
       - name: product
         identifier: raw_gz_product
         description: products of Greenweez
         columns:
           - name: product
             description: 
-            tests:
+        tests:
             - unique
             - not_null
 
@@ -30,6 +32,6 @@ sources:
         columns:
           - name: ship
             description: 
-            tests:
+        tests:
             - unique
             - not_null
