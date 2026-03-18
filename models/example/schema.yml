@@ -9,6 +9,10 @@ sources:
       - name: sales
         identifier: raw_gz_sales
         description: sales of Greenweez
+        config:
+          freshness:
+            warn_after: {count: 90, period: day}
+          loaded_at_field: date_date   
         columns:
           - name: sales
             description:
