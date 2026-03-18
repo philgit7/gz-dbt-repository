@@ -5,8 +5,7 @@ sources:
     database: <dbt-project-490610>
     schema: gz_raw_data
     loader: bigquery
-    freshness:
-       warn_after: {count: 12, period: hour}
+ 
     tables:
       - name: sales
         identifier: raw_gz_sales
