@@ -9,11 +9,27 @@ sources:
       - name: sales
         identifier: raw_gz_sales
         description: sales of Greenweez
+        columns:
+          - name: sales
+            description: 
+              
 
       - name: product
         identifier: raw_gz_product
         description: products of Greenweez
+        columns:
+          - name: product
+            description: 
+            tests:
+            - unique
+            - not_null
 
       - name: ship
         identifier: raw_gz_ship
         description: shipping data of Greenweez
+        columns:
+          - name: ship
+            description: 
+            tests:
+            - unique
+            - not_null
