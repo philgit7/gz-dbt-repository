@@ -1,32 +1,21 @@
-WITH purchase_cost AS (
+WITH sub AS (
     SELECT 
-      date_date
-    , orders_id
-    , ROUND(SUM(s.quantity * p.purchase_price), 0) AS purchase_cost
+        s.orders_id
+    ,   s.date_date
+    ,   s.revenue 
+    ,   s.quantity
+    ,   ROUND(s.quantity * p.purchase_price, 2) AS purchase_cost
+    ,   ROUND(s.revenue - s.quantity * p.purchase_price, 2) AS margin
     FROM {{ ref('stg_raw__sales') }} AS s
-    INNER JOIN {{ ref('stg_raw__product') }} AS p
-    ON s.products_id = p.products_id
-    GROUP BY date_date, orders_id 
-),
-
-margin AS (
-    SELECT 
-      date_date
-    , orders_id
-    , ROUND(SUM(s.revenue) - SUM(p.purchase_price), 0) AS margin 
-    FROM {{ ref('stg_raw__sales') }} AS s
-    INNER JOIN {{ ref('stg_raw__product') }} AS p
-    ON s.products_id = p.products_id
-    GROUP BY date_date, orders_id 
+    LEFT JOIN {{ ref('stg_raw__product') }} AS p
+    USING (products_id)
 )
 
 SELECT 
-  pc.date_date
-, pc.orders_id
-, pc.purchase_cost
-, m.margin 
-FROM purchase_cost AS pc 
-LEFT JOIN margin AS m
-ON  pc.date_date = m.date_date
-AND pc.orders_id = m.orders_id
-
+    orders_id
+,   date_date 
+,   revenue
+,   quantity 
+,   purchase_cost
+,   margin 
+FROM sub 
