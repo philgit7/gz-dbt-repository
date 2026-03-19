@@ -12,7 +12,7 @@ renamed as (
         date_date,
         paid_source,
         campaign_key,
-        campgn_name,
+        campgn_name AS campaign_name,
         ads_cost,
         impression,
         click
