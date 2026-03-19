@@ -1,4 +1,3 @@
-{{ config(materialized='table') }}
 WITH finance AS (
 
     SELECT
