@@ -14,28 +14,45 @@ sources:
             warn_after: {count: 90, period: day}
           loaded_at_field: date_date   
         columns:
-          - name: sales
+          - name: date_date 
             description:
-        tests:
-            - unique
-            - not_null 
+            tests:
+              - unique
+              - not_null
+          - name: orders_id
+            description: 
+          - name: products_id 
+            description: 
+          - name: revenue
+            description: 
+          - name: quantity
+            description: 
+
               
       - name: product
         identifier: raw_gz_product
         description: products of Greenweez
         columns:
-          - name: product
+          - name: products_id
             description: 
         tests:
             - unique
             - not_null
+          - name: purchase_price
+            description: 
 
       - name: ship
         identifier: raw_gz_ship
         description: shipping data of Greenweez
         columns:
-          - name: ship
+          - name: orders_id
             description: 
         tests:
             - unique
             - not_null
+          - name: shipping_fee
+            description: 
+          - name: log_cost
+            description: 
+          - name: ship_cost
+            description: 
