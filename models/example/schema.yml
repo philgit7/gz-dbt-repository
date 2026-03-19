@@ -4,23 +4,23 @@ sources:
     tables:
       - name: sales
         identifier: raw_gz_sales
-        description: 
+        description: raw sales table 
 
       - name: product
         identifier: raw_gz_product
         description: products of Greenweez
         columns:
           - name: products_id
-            description: 
+            description: unique product identifier
             tests:
               - unique
               - not_null
           - name: purchase_price
-            description: 
+            description: purchase price of the product
 
       - name: ship
         identifier: raw_gz_ship
         description: shipping data of Greenweez
         columns:
           - name: orders_id
-            description:
+            description: order identifier
