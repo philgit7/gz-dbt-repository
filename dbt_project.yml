@@ -41,6 +41,6 @@ models:
     mart:
       +materialized: table
       +finance_days:
-        +schema: dbt_philcosta
+        +schema: dbt_philcosta_finance
     
     
