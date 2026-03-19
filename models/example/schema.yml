@@ -2,6 +2,23 @@ sources:
   - name: raw
     schema: gz_raw_data
     tables:
+    
+      - name: adwords
+        identifier: raw_gz_adwords
+        description: raw adwords table 
+      
+      - name: bing 
+        identifier: raw_gz_bing
+        description: raw bing table 
+
+      - name: criteo 
+        identifier: raw_gz_criteo
+        description: raw criteo table 
+
+      - name: facebook
+        identifier: raw_gz_facebook
+        description: raw facebook table 
+
       - name: sales
         identifier: raw_gz_sales
         description: raw sales table 
