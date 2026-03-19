@@ -1,21 +1,41 @@
-
 version: 2
 
-models:
-    - name: my_first_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+sources:
+  - name: raw
+    schema: gz_raw_data
+    loader: bigquery
+ 
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: sales of Greenweez
+        config:
+          freshness:
+            warn_after: {count: 90, period: day}
+          loaded_at_field: date_date   
+        columns:
+          - name: sales
+            description:
+        tests:
+            - unique
+            - not_null 
+              
+      - name: product
+        identifier: raw_gz_product
+        description: products of Greenweez
+        columns:
+          - name: product
+            description: 
+        tests:
+            - unique
+            - not_null
 
-    - name: my_second_dbt_model
-      description: "A starter dbt model"
-      columns:
-          - name: id
-            description: "The primary key for this table"
-            tests:
-                - unique
-                - not_null
+      - name: ship
+        identifier: raw_gz_ship
+        description: shipping data of Greenweez
+        columns:
+          - name: ship
+            description: 
+        tests:
+            - unique
+            - not_null
