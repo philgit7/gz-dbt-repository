@@ -6,18 +6,30 @@ sources:
       - name: adwords
         identifier: raw_gz_adwords
         description: raw adwords table 
-      
+        tests:
+          - unique 
+          - not_null
+          
       - name: bing 
         identifier: raw_gz_bing
         description: raw bing table 
+        tests:
+          - unique 
+          - not_null
 
       - name: criteo 
         identifier: raw_gz_criteo
         description: raw criteo table 
+        tests:
+          - unique 
+          - not_null
 
       - name: facebook
         identifier: raw_gz_facebook
-        description: raw facebook table 
+        description: raw facebook table
+        tests:
+          - unique 
+          - not_null 
 
       - name: sales
         identifier: raw_gz_sales
