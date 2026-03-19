@@ -1,43 +1,20 @@
-version: 2
-
 sources:
   - name: raw
     schema: gz_raw_data
-    loader: bigquery
- 
     tables:
       - name: sales
         identifier: raw_gz_sales
-        description: sales of Greenweez
-        config:
-          freshness:
-            warn_after: {count: 90, period: day}
-          loaded_at_field: date_date   
-        columns:
-          - name: date_date 
-            description:
-            tests:
-              - unique
-              - not_null
-          - name: orders_id
-            description: 
-          - name: products_id 
-            description: 
-          - name: revenue
-            description: 
-          - name: quantity
-            description: 
+        description: 
 
-              
       - name: product
         identifier: raw_gz_product
         description: products of Greenweez
         columns:
           - name: products_id
             description: 
-        tests:
-            - unique
-            - not_null
+            tests:
+              - unique
+              - not_null
           - name: purchase_price
             description: 
 
@@ -46,13 +23,4 @@ sources:
         description: shipping data of Greenweez
         columns:
           - name: orders_id
-            description: 
-        tests:
-            - unique
-            - not_null
-          - name: shipping_fee
-            description: 
-          - name: log_cost
-            description: 
-          - name: ship_cost
-            description: 
+            description:
